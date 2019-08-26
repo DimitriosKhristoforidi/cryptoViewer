@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Red Hat Display', sans-serif !important;
+}
+
+#container {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+#item {
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 10px;
+}
