@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,38 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>CryptoViewer</title>
 </head>
+
 <body>
-    <h1>CryptoViewer</h1>
-    <div id="allCrypt">
-        
-    </div>
-    <script src="./js/index.js"></script>
+
+    <header>
+        <h1>CryptoViewer</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Converter</a></li>
+        </ul>
+    </header>
+
+    <table border="1" id="allCrypt">
+        <thead>
+            <tr>
+                <th>COIN</th>
+                <th>USD</th>
+                <th>EUR</th>
+                <th>RUB</th>
+            </tr>
+        </thead>
+        <tbody id="cryptTableBody"></tbody>
+    </table>
+    <form id="converter">
+        <input type="text" name="firstInput" id="firstInput"
+            oninput="convertValue(this.form.firstInput.value, this.form.firstCoin.value, this.form.secondCoin.value, this.form.secondInput.id)">
+        <div id="dropdownSelectors">Loading...</div>
+        <input type="text" name="secondInput" id="secondInput"
+            oninput="convertValue(this.form.secondInput.value, this.form.secondCoin.value, this.form.firstCoin.value, this.form.firstInput.id)">
+    </form>
+
+    <script src="./js/parser.js"></script>
+    <script src="./js/converter.js"></script>
 </body>
+
 </html>
