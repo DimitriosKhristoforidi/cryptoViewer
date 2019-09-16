@@ -1,8 +1,3 @@
-window.onload = () => {
-    getCoinList();
-}
-
-
 async function getCoinList() {
     await fetch('https://min-api.cryptocompare.com/data/all/coinlist')
         .then(response => response.json()
@@ -15,10 +10,10 @@ async function getCoinList() {
 }
 
 function initializeDropdown(list, name) {
-    let dropdownContent = `<select id="dropdown" name="${name}">`;
+    let dropdownContent = `<select id="dropdown" class="inputPlace" name="${name}">`;
     for (let key in list.Data) {
         dropdownContent += `<option value="${list.Data[key].Name}">${list.Data[key].Name}</option>`
-    }    
+    }
     dropdownContent += '</select>'
     document.getElementById("dropdownSelectors").innerHTML += dropdownContent;
 }
@@ -31,6 +26,20 @@ async function convertValue(convertingValue, fromCoin, toCoin, outPanelId) {
             .then(data => {
                 result = data[toCoin] * convertingValue;
             }))
-    
+
     document.getElementById(outPanelId).value = result;
+}
+
+getCoinList();
+
+function showConverterForm(checkbox) {
+    if (checkbox.checked) {
+        document.getElementById('converter').style.display = 'flex';
+        console.log('opened');
+        
+    }
+    else {
+        document.getElementById('converter').style.display = 'none';
+        console.log('closed');
+    }
 }

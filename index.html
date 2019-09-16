@@ -13,11 +13,41 @@
 
     <header>
         <h1>CryptoViewer</h1>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Converter</a></li>
-        </ul>
+        <div>
+            <div>Converter</div>
+            <label class="switch">
+                <input type="checkbox" id="switch" onclick="showConverterForm(this)">
+                <span class="slider round"></span>
+            </label>
+        </div>
     </header>
+
+    <div id="mainCoinsCharts">
+        <div>
+            <canvas id="BTCChart" width="360" height="250"></canvas>
+            <p id="BTCmainCoin"></p>
+        </div>
+        <div>
+            <canvas id="ETHChart" width="360" height="250"></canvas>
+            <p id="ETHmainCoin"></p>
+        </div>
+        <div>
+            <canvas id="LTCChart" width="360" height="250"></canvas>
+            <p id="LTCmainCoin"></p>
+        </div>
+        <div>
+            <canvas id="DASHChart" width="360" height="250"></canvas>
+            <p id="DASHmainCoin"></p>
+        </div>
+    </div>
+
+    <form id="converter">
+        <input type="text" class="inputPlace" name="firstInput" id="firstInput"
+            oninput="convertValue(this.form.firstInput.value, this.form.firstCoin.value, this.form.secondCoin.value, this.form.secondInput.id)">
+        <div id="dropdownSelectors">Loading...</div>
+        <input type="text" class="inputPlace" name="secondInput" id="secondInput"
+            oninput="convertValue(this.form.secondInput.value, this.form.secondCoin.value, this.form.firstCoin.value, this.form.firstInput.id)">
+    </form>
 
     <table border="1" id="allCrypt">
         <thead>
@@ -26,20 +56,15 @@
                 <th>USD</th>
                 <th>EUR</th>
                 <th>RUB</th>
+                <th>24 HOURS</th>
             </tr>
         </thead>
         <tbody id="cryptTableBody"></tbody>
     </table>
-    <form id="converter">
-        <input type="text" name="firstInput" id="firstInput"
-            oninput="convertValue(this.form.firstInput.value, this.form.firstCoin.value, this.form.secondCoin.value, this.form.secondInput.id)">
-        <div id="dropdownSelectors">Loading...</div>
-        <input type="text" name="secondInput" id="secondInput"
-            oninput="convertValue(this.form.secondInput.value, this.form.secondCoin.value, this.form.firstCoin.value, this.form.firstInput.id)">
-    </form>
 
     <script src="./js/parser.js"></script>
     <script src="./js/converter.js"></script>
+    <script src="./js/charts.js"></script>
 </body>
 
 </html>

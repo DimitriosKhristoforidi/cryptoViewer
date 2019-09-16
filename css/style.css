@@ -20,20 +20,19 @@ header {
     justify-content: space-between;
 }
 
-header ul {
+header h1 {
+    margin-left: 5%; 
+}
+
+header div {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    margin-right: 5%;
 }
 
-header ul li {
-    list-style: none;
-    margin: 5px;
-}
-
-header ul li a {
-    text-decoration: none;
-    color: white;
+header div div {
+    margin-right: 10px;
 }
 
 table {
@@ -66,9 +65,10 @@ td {
     vertical-align: middle;
 }
 
-#allCrypt {
-    width: 90%;
-    padding: 10px;
+#coin {
+    border: none;
+    display: flex;
+    align-items: center;
 }
 
 #coin a {
@@ -81,9 +81,10 @@ td {
 }
 
 #converter {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+    margin: 20px;
 }
 
 #converter div {
@@ -94,37 +95,127 @@ td {
     margin: 10px;
 }
 
+#converter .inputPlace {
+    font-family: 'Red Hat Display', sans-serif !important;
+	padding: 10px;
+	border: 1px solid #aaa;
+	border-radius: 10px;
+}
+
+#converter .inputPlace::-ms-expand {
+	display: none;
+}
+
+#converter .inputPlace:hover {
+	border-color: #888;
+}
+
+#converter .inputPlace:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+
+#converter .inputPlace option {
+	font-weight:normal;
+}
+
 #dropdownSelectors {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#item {
-    border: 1px solid gray;
-    margin: 5px;
+#equal {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#mainCoinsCharts {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#mainCoinsCharts canvas {
+    border: 1px solid lightgray;
+    background: white;
+}
+
+#mainCoinsCharts p {
+    margin: 0;
     padding: 10px;
+    color: white;
+    font-weight: bold; 
+    text-align: center;
+    border: 1px solid lightgray;
+    background: white;
 }
 
 #price {
     text-align: right;
     padding: 10px;
-} 
-
-@media (max-device-width: 1500px) {
-    #allCrypt {
-        grid-template-columns: 25% 25% 25% 25%;
-    }
 }
 
-@media (max-device-width: 1000px) {
-    #allCrypt {
-        grid-template-columns: 33% 33% 33%;
-    }
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+}
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.switch input:checked + .slider {
+    background-color: #2196F3;
+}
+  
+.switch input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+  
+.switch input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+  
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
 }
 
-@media (max-device-width: 520px) {
-    #allCrypt {
-        grid-template-columns: 50% 50%;
-    }
-}
